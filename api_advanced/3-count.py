@@ -2,6 +2,7 @@
 """counts words"""
 import requests
 
+
 def count_words(subreddit, word_list, after='', hot_list=[]):
     """Function that queries the Reddit API."""
     if after == '':

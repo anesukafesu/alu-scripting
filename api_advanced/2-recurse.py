@@ -6,6 +6,7 @@ from requests import get
 base_url = 'https://www.reddit.com'
 headers = {'User-Agent': 'Mozilla/5.0'}
 
+
 def recurse(subreddit, hot_list=[], after=''):
     """"
     Continually gets all hot posts recursively
@@ -24,6 +25,6 @@ def recurse(subreddit, hot_list=[], after=''):
         hot_list += map(
                 lambda article: article.get('data').get('title'),
                 hot_articles)
-        
+
         return recurse(subreddit, hot_list, after=after) \
-                if has_next else hot_list
+            if has_next else hot_list
