@@ -21,6 +21,9 @@ def recurse(subreddit, hot_list=[], after=''):
         has_next = data.get('after') is not None
 
         hot_articles = data.get('children')
-        hot_list += map(lambda article: article.get('data').get('title'), hot_articles)
+        hot_list += map(
+                lambda article: article.get('data').get('title'),
+                hot_articles)
         
-        return recurse(subreddit, hot_list, after=after) if has_next else hot_list
+        return recurse(subreddit, hot_list, after=after) \
+                if has_next else hot_list
