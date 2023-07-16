@@ -4,14 +4,14 @@ from requests import get
 
 
 base_url = 'https://www.reddit.com'
-headers = { 'User-Agent': 'Mozilla/5.0' }
+headers = {'User-Agent': 'Mozilla/5.0'}
 
 def recurse(subreddit, hot_list=[], after=''):
     """"
     Continually gets all hot posts recursively
     """
     full_url = base_url + '/r/{}/hot.json'.format(subreddit)
-    params = { 'after': after }
+    params = {'after': after}
     response = get(full_url, headers=headers, params=params)
 
     if response.status_code != 200:
